@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if error %}
+{{ error }}
+{% endif %}
+<div style="margin-top: 30px;">
+    <form action="." method="POST"> {% csrf_token %}
+        <div style="margin-top: 30px;">
+            <div style="margin-top: 30px;">
+                <input type="text" name="username" placeholder="Username" />
+            </div>
+            <div style="margin-top: 30px;">
+                <input type="password" name="password" />
+            </div>
+            <div style="margin-top: 30px;">
+                <button type="submit">Login</button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock content %}

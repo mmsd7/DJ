@@ -2,18 +2,12 @@
 
 {% block content %}
 
-{% if request.user_authenticated %}
+{% if request.user.is_authenticated %}
 
 <div style="margin-top: 30px;">
-    {% if error %}
-        {{ error }}
-    {% endif %}
-    <form action="." method="POST"> {% csrf_token %}
-            <p>Are your sure you want to <a href="/logout/">Log out?</a></p>
-            <div style="margin-top: 30px;">
-                <button type="submit">Yes. Log out.</button>
-            </div>
-        </div>
+    <form method="POST"> {% csrf_token %}
+        <p>Are your sure you want to Log out?</p>
+        <button type="submit">Yes. Log out.</button>
     </form>
 </div>
 {% else %}
